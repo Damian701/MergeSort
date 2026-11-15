@@ -37,3 +37,19 @@ void MergeSort<T>::merge(std::vector<T>& arr, int left, int mid, int right) {
     while (i < n1) { arr[k] = L[i]; i++; k++; }
     while (j < n2) { arr[k] = R[j]; j++; k++; }
 }
+
+template <typename T>
+void MergeSort<T>::mergeSort(std::vector<T>& arr, int left, int right) {
+    if (left >= right) return;
+    int mid = left + (right - left) / 2;
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid + 1, right);
+    merge(arr, left, mid, right);
+}
+
+template <typename T>
+void MergeSort<T>::sort(std::vector<T>& arr) {
+    if (!arr.empty()) {
+        mergeSort(arr, 0, arr.size() - 1);
+    }
+}

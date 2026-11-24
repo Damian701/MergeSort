@@ -1,23 +1,46 @@
-﻿#include <iostream>
+﻿/**
+ * @file main.cpp
+ * @brief Program główny demonstrujący działanie szablonu klasy MergeSort.
+ */
+
+#include <iostream>
 #include <vector>
 #include "MergeSort.h"
 
+ /**
+  * @brief Punkt wejścia programu.
+  *
+  * Tworzy dwie instancje klasy MergeSort (dla typów int oraz double),
+  * sortuje przykładowe tablice i wypisuje wyniki w konsoli.
+  *
+  * @return Kod zakończenia programu (0 oznacza poprawne wykonanie).
+  */
 int main() {
     MergeSort<int> intSorter;
-    std::vector<int> intArr = { 12, 11, 13, 5, 6, 7 };
+    std::vector<int> intArr = { 38, 27, 43, 3, 9, 82, 10 };
+
+    std::cout << "Przed sortowaniem (int): ";
+    for (int v : intArr) std::cout << v << " ";
+    std::cout << "\n";
+
     intSorter.sort(intArr);
 
-    std::cout << "Posortowane int: ";
-    for (int i : intArr) std::cout << i << " ";
-    std::cout << std::endl;
+    std::cout << "Po sortowaniu (int): ";
+    for (int v : intArr) std::cout << v << " ";
+    std::cout << "\n\n";
 
     MergeSort<double> doubleSorter;
-    std::vector<double> doubleArr = { 3.14, 1.59, 2.65, 5.35, 8.97 };
+    std::vector<double> doubleArr = { 3.14, 1.59, -2.65, 3.58, 9.79 };
+
+    std::cout << "Przed sortowaniem (double): ";
+    for (double v : doubleArr) std::cout << v << " ";
+    std::cout << "\n";
+
     doubleSorter.sort(doubleArr);
 
-    std::cout << "Posortowane double: ";
-    for (double d : doubleArr) std::cout << d << " ";
-    std::cout << std::endl;
+    std::cout << "Po sortowaniu (double): ";
+    for (double v : doubleArr) std::cout << v << " ";
+    std::cout << "\n";
 
     return 0;
 }
